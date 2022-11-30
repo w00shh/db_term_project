@@ -229,13 +229,26 @@ public class Main {
     		System.out.println("ERROR!");
     		System.exit(1);
     	}
-    	
+    	    	
     	System.out.print("---- description: ");
     	String description = sc.next();
+    	
+    	PreparedStatement pStmt_des = conn.prepareStatement("select * from bid_history where Description = ?");
+    	pStmt_des.setString(1, description);
+    	ResultSet rs_des = pStmt_des.executeQuery();
+    	while(rs_des.next()) {
+    		System.out.println("---- Sorry. Please use another description : ");    		
+    		description = sc.next();
+        	pStmt_des.setString(1, description);
+    		rs_des = pStmt_des.executeQuery();
+    	}
     	while(description.length()>20) {
     		System.out.print("---- Write description under 20 letters : ");
     		description = sc.next();
     	}
+    	
+    	rs_des.close();
+    	pStmt_des.close();
     	
     	System.out.print("---- buy-it-now price: ");
     	int buy_it_now = sc.nextInt();

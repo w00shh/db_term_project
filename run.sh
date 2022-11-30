@@ -1,1 +1,1 @@
-java -cp .:/usr/share/java/mysql-connector-java.jar Main jdbc:mysql://localhost:3306/db2019310523 2019310523 wjddntjr12
+java -cp .:/usr/share/java/mysql-connector-java-8.0.21.jar Main jdbc:mysql://localhost:3306/db2019310523 2019310523 wjddntjr12

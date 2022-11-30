@@ -9,4 +9,5 @@ insert into bid_history('Description','Price','Bidder') values('Aircon','500','a
 insert into bid_history('Description','Price','Bidder') values('Aircon','600','msj5531');
 insert into bid_history('Description','Price','Bidder') values('Comics','500','msj5531');
 update selling_item set Bidding_Price = '600', Bidder = 'msj5531', Bid_Posted = NOW(), Bid_Num = '2' where Description = 'Aircon';
-insert into sold_item('Description','Sold_Price','Buyer') values('Comics','500','hdg1234');
+insert into sold_item(Description,Sold_Price,Buyer) values('Comics','500','hdg1234');
+update item set Status = 'Sold' where Description = 'Comics';
