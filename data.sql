@@ -1,0 +1,12 @@
+insert into user values("admin","admin","admin","admin","admin@admin.com","Admin");
+insert into user values("hgd1234",1234,"hong","Gildong","user@user.com","User");
+insert into user values("msj5531","wjddntjr","Jung","WooSeok","jerry7780@naver.com","User");
+insert into user values("troll","troll","kim","ralo","ralo@dugaja.com","Banned");
+insert into item(`Category`,`Condition`,`Description`,`Buy_It_Now`,`Bid_Ending_Date`,`Seller`) values("Electronics","New","Aircon",1000,"2022-12-12 09:11:10","hgd1234");
+insert into item(`Category`,`Condition`,`Description`,`Buy_It_Now`,`Bid_Ending_Date`,`Seller`) values("Books","Like-New","Comics",500,"2022-12-10 19:12:05","msj5531");
+insert into item(`Category`,`Condition`,`Description`,`Buy_It_Now`,`Bid_Ending_Date`,`Seller`) values("Home","Used(Acceptable)","DishWasher",5000,"2023-01-01 00:00:00","admin");
+insert into bid_history('Description','Price','Bidder') values('Aircon','500','admin');
+insert into bid_history('Description','Price','Bidder') values('Aircon','600','msj5531');
+insert into bid_history('Description','Price','Bidder') values('Comics','500','msj5531');
+update selling_item set Bidding_Price = '600', Bidder = 'msj5531', Bid_Posted = NOW(), Bid_Num = '2' where Description = 'Aircon';
+insert into sold_item('Description','Sold_Price','Buyer') values('Comics','500','hdg1234');
