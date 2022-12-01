@@ -83,7 +83,7 @@ public class Main {
             		pStmt2.setString(4,LastName);
             		pStmt2.setString(5, email);
             		pStmt2.executeUpdate();
-            		System.out.println("Sign Up Complete.");                	
+            		System.out.println("Sign Up Complete. Please run program again.");                	
                 }
                 
             	pStmt.close();
@@ -199,8 +199,8 @@ public class Main {
     		category_string = "Sporting_Goods";
     	else {
     		category_string = "";
-    		System.out.println("ERROR!");
-    		System.exit(1);
+    		System.out.println("Your input is Wrong!");
+			Sell_Item(conn,sc);
     	}
     	
     	System.out.println("---- condition : ");    	
@@ -226,8 +226,8 @@ public class Main {
     		condition_string = "Used(Acceptable)";
     	else {
     		condition_string = "";
-    		System.out.println("ERROR!");
-    		System.exit(1);
+    		System.out.println("Your input is Wrong!");
+			Sell_Item(conn,sc);
     	}
     	    	
     	System.out.print("---- description: ");
@@ -279,6 +279,7 @@ public class Main {
 		pStmt.executeUpdate();
 		System.out.println("Sell item Success.");
     	pStmt.close();
+		Main_Menu(conn,sc);
     	return;
     }
     
@@ -299,8 +300,8 @@ public class Main {
         }
         if(idx == 1) {
         	System.out.println("Nothing searched.");
-        	Search_Item(conn,sc);
         	rs.close();
+        	Search_Item(conn,sc);
         	return;
         }
         
@@ -393,6 +394,9 @@ public class Main {
         	rs2.close();
         	stmt.close();
     	}
+		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Main_Menu(conn,sc);
     }
 
     public static void Show_My_Item(Connection conn,Scanner sc) throws SQLException {
@@ -425,6 +429,9 @@ public class Main {
         
         stmt.close();
         rs.close();
+		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Main_Menu(conn,sc);
     	return;    	
     }
     
@@ -460,7 +467,8 @@ public class Main {
     			Category_String = "Sporting_Goods";
     		else {
     			System.out.println("Wrong Input!");
-    			return;
+				Main_Menu(conn,sc);
+				return;
     		}
         	String query = "select * from item natural left join selling_item where Category = '" + Category_String + "' and Status = 'Selling'";
         	Print_Search(conn,sc,query);
@@ -534,7 +542,10 @@ public class Main {
         	}
         	idx++;
         }
-        
+		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Main_Menu(conn,sc);
+		return;        
     }
             
     public static void Check_Account(Connection conn,Scanner sc) throws SQLException{
@@ -579,7 +590,10 @@ public class Main {
         stmt2.close();
         rs.close();
         rs2.close();
-        return;
+		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Main_Menu(conn,sc);
+		return;        
     }
     
     public static void Admin_Menu(Connection conn, Scanner sc) throws SQLException{
@@ -637,6 +651,7 @@ public class Main {
         ResultSet rs = pStmt.executeQuery();                
         if(!rs.next()){
             System.out.println("There is no ID "+ID+"!");                	
+			Admin_Menu(conn,sc);
             return;
         }
         pStmt.clearParameters();
@@ -644,6 +659,7 @@ public class Main {
         pStmt.setString(1,ID);
         pStmt.executeUpdate();
         System.out.println("Successfully give Admin Authorization User "+ID);
+		Admin_Menu(conn,sc);
         return;
     }
     
@@ -656,8 +672,10 @@ public class Main {
     	System.out.println("---- (4) Exit");
     	System.out.print("     Your Choice : ");
     	int Select = sc.nextInt();
-    	if(Select == 4)
+    	if(Select == 4){
+			Admin_Menu(conn,sc);
     		return;
+		}
         
     	String query = "";
         if(Select == 1) 
@@ -668,6 +686,7 @@ public class Main {
         	query = "select Buyer,count(Buyer),sum(Sold_Price),max(Sold_Price) from sold_item where Sold_Price != 0 group by Buyer order by max(Sold_Price) desc";
         else {
         	System.out.println("Wrong Input.");
+			Admin_Menu(conn,sc);
         	return;
         }
         Statement stmt = conn.createStatement();
@@ -680,6 +699,10 @@ public class Main {
         }
         stmt.close();
         rs.close();
+   		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Admin_Menu(conn,sc);
+        return;
     }
     
     public static void Ban_User(Connection conn, Scanner sc) throws SQLException{
@@ -690,7 +713,8 @@ public class Main {
         pStmt.setString(1,ID);
         ResultSet rs = pStmt.executeQuery();                
         if(!rs.next()){
-            System.out.println("There is no ID "+ID+"!");                	
+            System.out.println("There is no ID "+ID+"!");  
+			Admin_Menu(conn,sc);              	
             return;
         }
         pStmt.clearParameters();
@@ -698,6 +722,9 @@ public class Main {
         pStmt.setString(1,ID);
         pStmt.executeUpdate();
         System.out.println("Successfully banned User "+ID);
+		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Admin_Menu(conn,sc);
         return;
     }
     public static void Change_User_Information(Connection conn, Scanner sc) throws SQLException{
@@ -708,7 +735,8 @@ public class Main {
         pStmt.setString(1,ID);
         ResultSet rs = pStmt.executeQuery();                
         if(!rs.next()){
-            System.out.println("There is no ID "+ID+"!");                	
+            System.out.println("There is no ID "+ID+"!");
+			Admin_Menu(conn,sc);                	
             return;
         }
         pStmt.clearParameters();
@@ -733,6 +761,7 @@ public class Main {
         }
         else {
         	System.out.println("Wrong Input");
+			Admin_Menu(conn,sc);
         	return;
         }
     	pStmt.setString(1,alter);
@@ -742,7 +771,11 @@ public class Main {
         
     	pStmt.close();
     	rs.close();
-    	return;
+
+		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Admin_Menu(conn,sc);
+        return;
     }
     
     public static void Show_Bid_History(Connection conn, Scanner sc) throws SQLException{
@@ -774,6 +807,9 @@ public class Main {
         }
         stmt.close();
         rs.close();
+		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Admin_Menu(conn,sc);
         return;
        }
     
@@ -796,8 +832,12 @@ public class Main {
         	System.out.println("   Current Highest Bid Bidder: "+rs.getString("Bidder"));        	
         	idx++;
     	}
-    	stmt.close();
+	 	stmt.close();
     	rs.close();
+   		System.out.print("Input and enter Any key to return : ");
+		String return_key = sc.next();
+		Admin_Menu(conn,sc);
+        return;
     }
     public static void Show_Sold_Items(Connection conn, Scanner sc) throws SQLException{
     	System.out.println("----< Show Sold Items >");
