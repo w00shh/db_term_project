@@ -453,6 +453,7 @@ public class Main {
         	System.out.println("----(3) Home");
         	System.out.println("----(4) Clothing");
         	System.out.println("----(5) Sporting Goods");
+	    	System.out.print("---- Enter your category : ");
     		int Category = sc.nextInt();
     		String Category_String = "";
     		if(Category == 1)
