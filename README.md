@@ -3,7 +3,7 @@
 
 # E-R Model
 
-[![Blank diagram (1).png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fead75c2-9fed-4c56-9001-a4a3fdcfa7f1/Blank_diagram_(1).png)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/fead75c2-9fed-4c56-9001-a4a3fdcfa7f1/Blank_diagram_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230104%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230104T065629Z&X-Amz-Expires=86400&X-Amz-Signature=a1a85b4a737bb67fa281b727aaf6c4e8b47832cec231851ef80055589084a044&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Blank%2520diagram%2520%281%29.png%22&x-id=GetObject)
+![Blank diagram (1).png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/fead75c2-9fed-4c56-9001-a4a3fdcfa7f1/Blank_diagram_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230104%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230104T065629Z&X-Amz-Expires=86400&X-Amz-Signature=a1a85b4a737bb67fa281b727aaf6c4e8b47832cec231851ef80055589084a044&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Blank%2520diagram%2520%281%29.png%22&x-id=GetObject)
 
 # Manual
 
