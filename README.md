@@ -1,6 +1,3 @@
-## ⚠참고
-날짜로 검색에 오류가 있어 1점이 감점되었음. 참고바람
-
 # db_term_project
 2022-2 SKKU Introduction of Database term project
 
